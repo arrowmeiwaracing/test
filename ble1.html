@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>HTML5サンプル</title>
+
+<script>
+onload = function() {
+
+	document.getElementById("B1").addEventListener('click', function (e) {
+		let options = {
+			acceptAllDevices: true
+		};
+		navigator.bluetooth.requestDevice(options)
+		  .then(device => console.log(device))
+		  .catch(error => console.log(error));
+	}, false);
+
+}
+</script>
+
+
+</head>
+<body>
+<p><input type="button" id="B1" value="照会"></p>
+<p><span id="R1"></span></p>
+</body>
