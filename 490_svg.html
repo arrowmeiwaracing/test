@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=640, user-scalable=yes" />
+
+<script>
+//ƒpƒlƒ‹‰ñ“]
+function rollPanel(_x, _y) {
+	let _x1 = 0 + _x;
+	let _x2 = 320 + _x;
+	let _y1 = 0 + _y;
+	let _y2 = 0 + _y;
+	document.getElementById("eye1").setAttribute("transform", "translate(" + _x1 + "," + _y1 + ")");
+	document.getElementById("eye2").setAttribute("transform", "translate(" + _x2 + "," + _y2 + ")");
+}
+function callFunc() {
+	let x = Math.random() * 50;
+	let y = Math.random() * 10;
+	rollPanel(x, y);
+}
+
+//event
+onload = function() {
+	setInterval("callFunc()",1000);
+	console.log(x);
+} //onload
+</script>
+</head>
+
+<body>
+
+<svg id="svg2" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 480">
+
+<g id="eye1">
+<circle id="c1" r="50" cx="160" cy="240" style="stroke-width:1; stroke:white; fill:blue; fill-opacity:0.3 "/>
+<circle id="c2" r="40" cx="160" cy="240" style="stroke-width:1; stroke:white; fill:black; fill-opacity:1.0 "/>
+<!--
+<image  id="i1" x="0" y="230" width="190" height="80" xlink:href="btn1.png"/>
+-->
+</g>
+<g id="eye2" transform="translate(320,0)">
+<circle id="c1" r="50" cx="160" cy="240" style="stroke-width:1; stroke:white; fill:blue; fill-opacity:0.3 "/>
+<circle id="c2" r="40" cx="160" cy="240" style="stroke-width:1; stroke:white; fill:black; fill-opacity:1.0 "/>
+<!--
+<image  id="i1" x="0" y="230" width="190" height="80" xlink:href="btn1.png"/>
+-->
+</g>
+
+
+
+</svg>
+
+</body>
+</html>
