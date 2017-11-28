@@ -33,12 +33,13 @@ try:
   print("mqtt connected!")
 
   zv1 = 9999
+  ztm1 = 0.0
   while True:
     v1 = t1.read()
     print("adc0=",v1)
 
     if v1>999:                     # Touch value is over 1000 as 1000, not as 0.
-      v1=1000                      #
+      v1=1000                      # Update for Your machine value.
     else:                          #
       v1=0                         #
 
@@ -46,7 +47,12 @@ try:
       msg = '{"d":{"value":' + str(v1) + ', "dummyD":1, "dummyC": "A"}}'
       c.publish(TOPIC, msg, 0, True)
       zv1 = v1
-      
+    
+    tm1 = time.time()               #Ping per 1200sec.
+    if (tm1-ztm1) > 1200.0:         # ibmcloud mqtt time out is 3600sec.
+      c.ping()                      #
+      ztm1 = tm1                    #
+    
     time.sleep(0.1)                #wait 100msec
     
 finally:                           #error or Ctrl+c
@@ -55,3 +61,4 @@ finally:                           #error or Ctrl+c
   wlan.disconnect()
   wlan.active(False)
   print("ended")
+  
