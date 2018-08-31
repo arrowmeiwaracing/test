@@ -1,0 +1,8 @@
+<div style="height: 320px; width: 240px">returnPicture
+<img src="data:image/low;base64,{{msg.payload}}"
+ width='320'
+ height='240'
+ id='img'
+ alt='getting image'
+ />
+</div>
