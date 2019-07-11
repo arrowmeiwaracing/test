@@ -1,3 +1,6 @@
+#必須ライブラリ pyserial
+#テストはWindows10 Anaconda（Python3.6）
+
 import serial
 
 
